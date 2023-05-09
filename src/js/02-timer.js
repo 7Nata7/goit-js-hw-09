@@ -56,7 +56,6 @@ const handleTime = (targetDate) => {
  refs.secSpan.textContent = addLeadingZero(seconds)
 }
 
-
 const startTimer = () => {
  if (!chosenDate) {
   return;
@@ -66,8 +65,11 @@ const startTimer = () => {
  timer = setInterval(() => handleTime(chosenDate), 1000);
 };
 
-refs.startBtn.addEventListener("click", () => startTimer());
-
+refs.startBtn.addEventListener("click", () => {
+  startTimer();
+  refs.startBtn.disabled = true; 
+ });
+ 
  function convertMs(ms) {
 
   const second = 1000;
